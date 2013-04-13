@@ -21,5 +21,14 @@ int main()
   }
   p_mem(&s);
 
+  printf("Popping and printing (selectively)\n");
+  for(i = 0; i < 1000000; i++) {
+    int out;
+    StackPop(&s, &out);
+    if(i % 100000 == 99999) {
+      printf("%d\n", out);
+    }
+  }
+
   StackFree(&s);
 }
